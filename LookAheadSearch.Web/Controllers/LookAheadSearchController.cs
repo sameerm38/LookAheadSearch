@@ -21,11 +21,11 @@ namespace LookAheadSearch.Web.Controllers
             return View();
         }
 
-        public async Task<JsonResult> Search(string SearchTerm)
+        public async Task<IActionResult> Search(string SearchTerm)
         {
 
             var result = await productService.SearchByName(SearchTerm);
-            return new JsonResult(result);
+            return Ok(result.Products);
         }
     }
 }
